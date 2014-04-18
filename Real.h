@@ -1,10 +1,14 @@
-//
-//  Real.h
-//  cse220_lab05
-//
-//  Created by Matthew Weser on 4/18/14.
-//  Copyright (c) 2014 TheLinkers. All rights reserved.
-//
+/* Team 15: https://github.com/TheLinkers/cse220_lab4
+ Nikolas Conklin: nconklin
+ Daniel Martin: plan10-acme
+ Matthew Weser: mweser
+ 
+ 28 Apr 2014
+ CSE 220
+ 10:30am T Th
+ 
+ Real.h
+ Lab5 */
 
 #ifndef __cse220_lab05__Real__
 #define __cse220_lab05__Real__
