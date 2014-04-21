@@ -14,5 +14,6 @@
 #define __cse220_lab05__Literal__
 
 #include <iostream>
+#include "common.h"
 
 #endif /* defined(__cse220_lab05__Literal__) */

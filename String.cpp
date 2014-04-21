@@ -11,3 +11,11 @@
  Lab5 */
 
 #include "String.h"
+
+class String: public Token{
+    public:
+        String():Literal<string>(""){}
+        void print(){
+            
+        }
+};

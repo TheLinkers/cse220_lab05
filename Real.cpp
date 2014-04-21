@@ -11,3 +11,11 @@
  Lab5 */
 
 #include "Real.h"
+
+class Real: public Token{
+    public:
+        Real():Literal<double>(0,0){}
+        void print(){
+            
+        }
+};

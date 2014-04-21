@@ -11,3 +11,11 @@
  Lab5 */
 
 #include "Integer.h"
+
+class Integer: public Token{
+    public:
+        Integer():Literal<int>(0){}
+        void print(){
+            
+        }
+};
