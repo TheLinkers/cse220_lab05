@@ -16,6 +16,6 @@ class Real: public Token{
     public:
         Real():Literal<double>(0,0){}
         void print(){
-            
+            //sprintf(line, "    >> %-16s %g (real)\n", "<NUMBER>", token->getRealLiteral());
         }
 };
