@@ -14,5 +14,16 @@
 #define __cse220_lab05__Real__
 
 #include <iostream>
+#include "Literal.h"
+
+using namespace std;
+
+class Real : public Literal {
+public:
+    
+private:
+    
+    
+};
 
 #endif /* defined(__cse220_lab05__Real__) */

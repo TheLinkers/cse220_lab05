@@ -14,5 +14,15 @@
 #define __cse220_lab05__String__
 
 #include <iostream>
+#include "Literal.h"
+
+using namespace std;
+
+class String : public Literal {
+public:
+    
+private:
+    
+};
 
 #endif /* defined(__cse220_lab05__String__) */

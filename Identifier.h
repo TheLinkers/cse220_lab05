@@ -14,5 +14,16 @@
 #define __cse220_lab05__Identifier__
 
 #include <iostream>
+#include "Token.h"
+
+using namespace std;
+
+class Identifier : public Token {
+public:
+    
+private:
+    
+};
+
 
 #endif /* defined(__cse220_lab05__Identifier__) */

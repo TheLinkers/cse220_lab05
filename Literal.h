@@ -15,5 +15,16 @@
 
 #include <iostream>
 #include "common.h"
+#include "Token.h"
+
+using namespace std;
+
+class Literal : public Token {		// this may not be proper for template class
+public:
+    
+private:
+    
+    
+};
 
 #endif /* defined(__cse220_lab05__Literal__) */
