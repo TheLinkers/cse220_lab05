@@ -11,3 +11,20 @@
  Lab5 */
 
 #include "Identifier.h"
+#include "Token.h"
+
+using namespace std;
+
+class Identifier : public Token {
+public:
+    Identifier();
+    ~Identifier();
+    getLiteral();
+    setLiteral(LiteralType literal);		// modify to suit proper way to call templates of literal
+    
+    
+private:
+    Literal LiteralType;
+    
+    
+};
