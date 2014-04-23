@@ -18,7 +18,7 @@
 
 using namespace std;
 
-class Real : public Literal {
+class Real : public Literal<float> {
 public:
     
 private:

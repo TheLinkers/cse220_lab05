@@ -14,6 +14,7 @@
 //
 
 #include <iostream>
+#include <typeinfo>
 #include "common.h"
 #include "Print.h"
 #include "Scanner.h"
