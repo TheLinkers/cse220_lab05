@@ -18,7 +18,7 @@ Real::Real() : Literal<float>(0.0) {
     
 }
 
-void Real::Print()
+ void Real::print()
 {
 	//sprintf(line, "    >> %-16s %g (real)\n", "<NUMBER>", token->getRealLiteral());
 }

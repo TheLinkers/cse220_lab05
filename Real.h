@@ -22,7 +22,7 @@ class Real : public Literal<float> {
 public:
     Real();
     ~Real();
-    void Print();
+    virtual void print();
 };
 
 #endif /* defined(__cse220_lab05__Real__) */

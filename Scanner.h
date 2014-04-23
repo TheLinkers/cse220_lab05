@@ -42,17 +42,18 @@ private:
     char source_line[MAX_SOURCE_LINE_LENGTH];
     char *line_ptr = NULL;
     int line_number;
+    Token *new_token;
     
     bool getSourceLine(char source_buffer[]);
     char getChar(char source_buffer[]);
     void skipBlanks(char source_buffer[]);
     void skipComment(char source_buffer[]);
-    void getWord(char *str, char *token_ptr, Token *tok);
-    void getNumber(char *str, char *token_ptr, Token *tok);
-    void getString(char *str, char *token_ptr, Token *tok);
-    void getSpecial(char *str, char *token_ptr, Token *tok);
+    void getWord(char *str, char *token_ptr);
+    void getNumber(char *str, char *token_ptr);
+    void getString(char *str, char *token_ptr);
+    void getSpecial(char *str, char *token_ptr);
     void downshiftWord(char word[]);
-    bool isReservedWord(char *str, Token *tok);
+    bool isReservedWord(char *str);
     
 public:
     Scanner(FILE *source_file, char source_name[], char date[], Print printer);

@@ -24,9 +24,7 @@ private:
 public:
     Integer();
     ~Integer();
-    void print(){
-            //sprintf(line, "    >> %-16s %g (real)\n", "<NUMBER>", token->getIntLiteral());
-    }
+    virtual void Print();
 };
 
 #endif /* defined(__cse220_lab05__Integer__) */

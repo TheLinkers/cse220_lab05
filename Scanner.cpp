@@ -90,7 +90,6 @@ Token* Scanner::getToken()
     char ch = '\0'; //This can be the current character you are examining during scanning.
     char token_string[MAX_TOKEN_STRING_LENGTH] = {'\0'}; //Store your token here as you build it.
     char *token_ptr = token_string; //write some code to point this to the beginning of token_string
-    Token *new_token = new Token();
     
     new_token->setType(NO_TYPE);
     //1.  Skip past all of the blanks
@@ -105,19 +104,19 @@ Token* Scanner::getToken()
     switch (char_table[ch])
     {//3.  Call the appropriate function to deal with the cases in 2.
         case LETTER:
-            getWord(token_string, token_ptr, new_token);
+            getWord(token_string, token_ptr);
             break;
         case DIGIT:
-            getNumber(token_string, token_ptr, new_token);
+            getNumber(token_string, token_ptr);
             break;
         case QUOTE:
-            getString(token_string, token_ptr, new_token);
+            getString(token_string, token_ptr);
             break;
         case EOF_CODE:
             new_token->setCode(END_OF_FILE);
             break;
         default:
-            getSpecial(token_string, token_ptr, new_token);
+            getSpecial(token_string, token_ptr);
             break;
     }
     
@@ -181,7 +180,7 @@ void Scanner::skipComment(char source_buffer[])
     }
     while ((ch != '}') && (ch != EOF_CHAR));
 }
-void Scanner::getWord(char *str, char *token_ptr, Token *tok)
+void Scanner::getWord(char *str, char *token_ptr)
 {
     /*
      Write some code to Extract the word
@@ -201,12 +200,12 @@ void Scanner::getWord(char *str, char *token_ptr, Token *tok)
      Write some code to Check if the word is a reserved word.
      if it is not a reserved word its an identifier.
      */
-    if (!isReservedWord(str, tok))
+    if (!isReservedWord(str, new_token))
     {
         //set token to identifier
-        tok->setCode(IDENTIFIER);
+        new_token->setCode(IDENTIFIER);
     }
-    tok->setTokenString(string(str));
+    new_token->setTokenString(string(str));
 }
 void Scanner::getNumber(char *str, char *token_ptr, Token *tok)
 {
