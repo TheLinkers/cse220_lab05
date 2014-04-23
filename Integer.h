@@ -18,11 +18,15 @@
 
 using namespace std;
 
-class Integer : public Literal {
-public:
-    
+class Integer : public Literal<int> {
 private:
     
+public:
+    Integer();
+    ~Integer();
+    void print(){
+            //sprintf(line, "    >> %-16s %g (real)\n", "<NUMBER>", token->getIntLiteral());
+    }
 };
 
 #endif /* defined(__cse220_lab05__Integer__) */

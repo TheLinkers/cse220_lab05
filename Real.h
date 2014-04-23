@@ -20,10 +20,9 @@ using namespace std;
 
 class Real : public Literal<float> {
 public:
-    
-private:
-    
-    
+    Real();
+    ~Real();
+    void Print();
 };
 
 #endif /* defined(__cse220_lab05__Real__) */

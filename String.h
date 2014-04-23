@@ -18,10 +18,13 @@
 
 using namespace std;
 
-class String : public Literal {
+class String : public Literal<string> {
 public:
-    
+    String();
+    ~String();
 private:
+    
+    
     
 };
 

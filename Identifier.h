@@ -20,13 +20,9 @@ class Identifier : public Token {
 public:
     Identifier();
     ~Identifier();
-    Literal getLiteral();
-    Literal setLiteral(LiteralType literal);		// modify to suit proper way to call templates of literal
     
     
-private:
-    Literal LiteralType;
-    
+private:    
     
 };
 

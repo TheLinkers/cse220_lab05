@@ -12,10 +12,13 @@
 
 #include "Real.h"
 
-class Real: public Token{
-    public:
-        Real():Literal<double>(0,0){}
-        void print(){
-            //sprintf(line, "    >> %-16s %g (real)\n", "<NUMBER>", token->getRealLiteral());
-        }
-};
+Real::Real() : Literal<float>(0.0) {
+    
+    
+    
+}
+
+void Real::Print()
+{
+	//sprintf(line, "    >> %-16s %g (real)\n", "<NUMBER>", token->getRealLiteral());
+}

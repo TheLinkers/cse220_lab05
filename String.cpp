@@ -12,10 +12,7 @@
 
 #include "String.h"
 
-class String: public Token{
-    public:
-        String():Literal<string>(""){}
-        void print(){
-            //sprintf(line, "    >> %-16s %-s\n", "<IDENTIFIER>", token->getStringLiteral().c_str());
-        }
-};
+String::String():  Literal<string>("") {
+    
+    
+}
