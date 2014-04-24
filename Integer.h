@@ -24,7 +24,7 @@ private:
 public:
     Integer();
     ~Integer();
-    virtual void Print();
+    virtual void print();
 };
 
 #endif /* defined(__cse220_lab05__Integer__) */

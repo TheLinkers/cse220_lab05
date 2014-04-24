@@ -15,3 +15,25 @@
 
 using namespace std;
 
+Identifier::Identifier() {
+    
+}
+
+Identifier::~Identifier() {
+    
+}
+
+void Identifier::setLeftChild(Token *tok) {
+}
+
+Identifier Identifier::*getLeftChild() {
+
+}
+
+void Identifier::setRightChild(Token *tok) {
+    
+}
+
+Identifier Identifier::*getRightChild() {
+    
+}

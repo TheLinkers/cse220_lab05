@@ -22,6 +22,7 @@ class String : public Literal<string> {
 public:
     String();
     ~String();
+    virtual void print();
 private:
     
     

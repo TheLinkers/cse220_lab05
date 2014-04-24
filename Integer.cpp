@@ -17,6 +17,6 @@ Integer::Integer() : Literal<int>(0) {
 
 }
 
-void Integer::Print() {
+void Integer::print() {
 	//sprintf(line, "    >> %-16s %g (real)\n", "<NUMBER>", token->getIntLiteral());
 }

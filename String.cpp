@@ -16,3 +16,8 @@ String::String():  Literal<string>("") {
     
     
 }
+
+void String::print() {
+    
+    
+}
