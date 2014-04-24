@@ -203,7 +203,8 @@ void Scanner::getWord(char *str, char *token_ptr)
     if (!isReservedWord(str, new_token))
     {
         //set token to identifier
-        new_token->setCode(IDENTIFIER);
+        //new_token->setCode(IDENTIFIER);
+        new_token = new Identifier();
     }
     new_token->setTokenString(string(str));
 }
@@ -263,16 +264,18 @@ void Scanner::getNumber(char *str, char *token_ptr, Token *tok)
         while (char_table[ch] == DIGIT);
     }
     *token_ptr = '\0';
-    tok->setCode(NUMBER);
+    new_token->setCode(NUMBER);
     if (int_type)
     {
-        tok->setType(INTEGER_LIT);
-        tok->setLiteral((int)atoi(str));
+        Integer* integer = new Integer();
+        integer->setLiteral((int)atoi(str));
+        new_token = integer;
     }
     else
     {
-        tok->setType(REAL_LIT);
-        tok->setLiteral((float)atof(str));
+        Real* real = new Real();
+        real->setLiteral((float)atof(str));
+        new_token = real;
     }
 }
 void Scanner::getString(char *str, char *token_ptr, Token *tok)
@@ -289,10 +292,11 @@ void Scanner::getString(char *str, char *token_ptr, Token *tok)
     }
     *token_ptr++ = *line_ptr++;
     *token_ptr = '\0';
-    tok->setCode(STRING);
-    tok->setType(STRING_LIT);
+    new_token->setCode(STRING);
+    String* str_obj = new String();
     string test(str);
-    tok->setLiteral(test);
+    str_obj->setLiteral(test);
+    new_token = str_obj;
 }
 void Scanner::getSpecial(char *str, char *token_ptr, Token *tok)
 {
