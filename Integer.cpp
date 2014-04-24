@@ -18,5 +18,5 @@ Integer::Integer() : Literal<int>(0) {
 }
 
 void Integer::print() {
-	//sprintf(line, "    >> %-16s %g (real)\n", "<NUMBER>", token->getIntLiteral());
+	sprintf(line, "    >> %-16s %g (real)\n", "<NUMBER>", this->getLiteral());
 }
