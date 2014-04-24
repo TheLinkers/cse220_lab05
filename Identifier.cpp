@@ -26,14 +26,14 @@ Identifier::~Identifier() {
 void Identifier::setLeftChild(Token *tok) {
 }
 
-Identifier Identifier::*getLeftChild() {
-
+Identifier* Identifier::getLeftChild() {
+	// not sure how to inherit this from Token
 }
 
 void Identifier::setRightChild(Token *tok) {
     
 }
 
-Identifier Identifier::*getRightChild() {
-    
+Identifier* Identifier::getRightChild() {
+    	// not sure how to inherit this from Token
 }
