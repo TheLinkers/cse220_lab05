@@ -200,7 +200,7 @@ void Scanner::getWord(char *str, char *token_ptr)
      Write some code to Check if the word is a reserved word.
      if it is not a reserved word its an identifier.
      */
-    if (!isReservedWord(str, new_token))
+    if (!isReservedWord(str))
     {
         //set token to identifier
         //new_token->setCode(IDENTIFIER);
@@ -457,7 +457,7 @@ void Scanner::downshiftWord(char word[])
         word[index] = tolower(word[index]);
     }
 }
-bool Scanner::isReservedWord(char *str, Token *tok)
+bool Scanner::isReservedWord(char *str)
 {
     /*
      Examine the reserved word table and determine if the function input is a reserved word.
@@ -473,7 +473,7 @@ bool Scanner::isReservedWord(char *str, Token *tok)
             rw = rw_table[str_len - 2][i];
             if (strcmp(str, rw.string) == 0)
             {
-                tok->setCode(rw.token_code);
+                new_token->setCode(rw.token_code);
                 return true;
             }
         }

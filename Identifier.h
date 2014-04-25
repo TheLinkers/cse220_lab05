@@ -26,7 +26,8 @@ public:
     Identifier *getRightChild();
     
 private:    
-    
+    Identifier* rightChild;
+    Identifier* leftChild;
     
 };
 

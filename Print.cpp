@@ -71,30 +71,38 @@ void Print::printPageHeader()
 void Print::printToken(Token *token)
 {   
     char line[MAX_SOURCE_LINE_LENGTH + 32];
-    Literal* lit = token;
+    const char *symbol_string = SYMBOL_STRINGS[token->getCode()];
+
+    switch (token->getCode()) {
+	case NUMBER:
+	    if (number_type) {
+		token = new Integer();		// allocates new token-identifier on heap
+		token->print();
+	    } else {
+		token = new Real();
+		token->print();
+		
+	    }
+	    break;
+	case STRING:
+	    token = new String();
+	    token->print();
+	    break;
+	    
+	default:
+	    sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
+	    break;
+    }
+    
+    /* Dynamic casting (not functional right now)
     Integer *integer = dynamic_cast<Integer*>(lit);
     Real *real = dynamic_cast<Real*>(lit);
     String *str = dynamic_cast<String*>(lit);
-    if (integer)
-    {
-        integer.print(line);
+    */
+     
+           printLine(line);
     }
-    else if (real)
-    {
-        real.print(line);
-    }
-    else if (str)
-    {
-        str.print(line);
-    }
-    else
-    {
 
-        const char *symbol_string = SYMBOL_STRINGS[token->getCode()];
-        sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
-        printLine(line);
-    }
-}
 int Print::getLineCount()
 {
     return this->lineCount;
