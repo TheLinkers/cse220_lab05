@@ -208,7 +208,7 @@ void Scanner::getWord(char *str, char *token_ptr)
     }
     new_token->setTokenString(string(str));
 }
-void Scanner::getNumber(char *str, char *token_ptr, Token *tok)
+void Scanner::getNumber(char *str, char *token_ptr)
 {
     /*
      Write some code to Extract the number and convert it to a literal number.
@@ -278,7 +278,7 @@ void Scanner::getNumber(char *str, char *token_ptr, Token *tok)
         new_token = real;
     }
 }
-void Scanner::getString(char *str, char *token_ptr, Token *tok)
+void Scanner::getString(char *str, char *token_ptr)
 {
     /*
      Write some code to Extract the string
@@ -298,7 +298,7 @@ void Scanner::getString(char *str, char *token_ptr, Token *tok)
     str_obj->setLiteral(test);
     new_token = str_obj;
 }
-void Scanner::getSpecial(char *str, char *token_ptr, Token *tok)
+void Scanner::getSpecial(char *str, char *token_ptr)
 {
     /*
      Write some code to Extract the special token.  Most are single-character
@@ -310,62 +310,62 @@ void Scanner::getSpecial(char *str, char *token_ptr, Token *tok)
     switch (ch)
     {
         case '^':
-            tok->setCode(UPARROW);
+            new_token->setCode(UPARROW);
             token_ptr++;
             line_ptr++;
             break;
         case '*':
-            tok->setCode(STAR);
+            new_token->setCode(STAR);
             token_ptr++;
             line_ptr++;
             break;
         case '(':
-            tok->setCode(LPAREN);
+            new_token->setCode(LPAREN);
             token_ptr++;
             line_ptr++;
             break;
         case ')':
-            tok->setCode(RPAREN);
+            new_token->setCode(RPAREN);
             token_ptr++;
             line_ptr++;
             break;
         case '-':
-            tok->setCode(MINUS);
+            new_token->setCode(MINUS);
             token_ptr++;
             line_ptr++;
             break;
         case '+':
-            tok->setCode(PLUS);
+            new_token->setCode(PLUS);
             token_ptr++;
             line_ptr++;
             break;
         case '=':
-            tok->setCode(EQUAL);
+            new_token->setCode(EQUAL);
             token_ptr++;
             line_ptr++;
             break;
         case '[':
-            tok->setCode(LBRACKET);
+            new_token->setCode(LBRACKET);
             token_ptr++;
             line_ptr++;
             break;
         case ']':
-            tok->setCode(RBRACKET);
+            new_token->setCode(RBRACKET);
             token_ptr++;
             line_ptr++;
             break;
         case ';':
-            tok->setCode(SEMICOLON);
+            new_token->setCode(SEMICOLON);
             token_ptr++;
             line_ptr++;
             break;
         case ',':
-            tok->setCode(COMMA);
+            new_token->setCode(COMMA);
             token_ptr++;
             line_ptr++;
             break;
         case '/':
-            tok->setCode(SLASH);
+            new_token->setCode(SLASH);
             token_ptr++;
             line_ptr++;
             break;
@@ -375,13 +375,13 @@ void Scanner::getSpecial(char *str, char *token_ptr, Token *tok)
             if (ch == '=')
             {
                 *token_ptr = '=';
-                tok->setCode(COLONEQUAL);
+                new_token->setCode(COLONEQUAL);
                 token_ptr++;
                 line_ptr++;
             }
             else
             {
-                tok->setCode(COLON);
+                new_token->setCode(COLON);
             }
             break;
         case '<':
@@ -390,20 +390,20 @@ void Scanner::getSpecial(char *str, char *token_ptr, Token *tok)
             if (ch == '=')
             {
                 *token_ptr = '=';
-                tok->setCode(LE);
+                new_token->setCode(LE);
                 token_ptr++;
                 line_ptr++;
             }
             else if (ch == '>')
             {
                 *token_ptr = '>';
-                tok->setCode(NE);
+                new_token->setCode(NE);
                 token_ptr++;
                 line_ptr++;
             }
             else
             {
-                tok->setCode(LT);
+                new_token->setCode(LT);
             }
             break;
         case '>':
@@ -412,13 +412,13 @@ void Scanner::getSpecial(char *str, char *token_ptr, Token *tok)
             if (ch == '=')
             {
                 *token_ptr = '=';
-                tok->setCode(GE);
+                new_token->setCode(GE);
                 token_ptr++;
                 line_ptr++;
             }
             else
             {
-                tok->setCode(GT);
+                new_token->setCode(GT);
             }
             break;
         case '.':
@@ -427,23 +427,23 @@ void Scanner::getSpecial(char *str, char *token_ptr, Token *tok)
             if (ch == '=')
             {
                 *token_ptr = '.';
-                tok->setCode(DOTDOT);
+                new_token->setCode(DOTDOT);
                 token_ptr++;
                 line_ptr++;
             }
             else
             {
-                tok->setCode(PERIOD);
+                new_token->setCode(PERIOD);
             }
             break;
         default:
-            tok->setCode(ERROR);
+            new_token->setCode(ERROR);
             token_ptr++;
             line_ptr++;
             break;
     }
     *token_ptr = '\0';
-    tok->setTokenString(string(str));
+    new_token->setTokenString(string(str));
 }
 void Scanner::downshiftWord(char word[])
 {

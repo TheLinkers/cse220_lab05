@@ -44,7 +44,7 @@ private:
     char todays_date[DATE_STRING_LENGTH];
     CharCode char_table[CHAR_TABLE_SIZE];  // The character table
     char source_line[MAX_SOURCE_LINE_LENGTH];
-    char *line_ptr = NULL;
+    char *line_ptr;
     int line_number;
     Token *new_token;
     

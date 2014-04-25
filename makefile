@@ -36,7 +36,7 @@ Integer.o : Integer.h Integer.cpp
 LineNumberList.o : LineNumberList.h LineNumberList.cpp
 	$(CC) $(CFLAGS) LineNumberList.cpp
 
-Print.o : Print.h Print.cpp Token.h
+Print.o : Print.h Print.cpp
 	$(CC) $(CFLAGS) Print.cpp
 
 Real.o : Real.h Real.cpp

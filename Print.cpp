@@ -13,8 +13,6 @@
 //
 
 #include "Print.h"
-#include "Token.h"
-#include "Literal.h"
 
 const char* const SYMBOL_STRINGS[] =
 {
@@ -73,10 +71,21 @@ void Print::printPageHeader()
 void Print::printToken(Token *token)
 {   
     char line[MAX_SOURCE_LINE_LENGTH + 32];
-    Literal& lit = dynamic_cast<Literal&>(token);
-    if (lit)
+    Literal* lit = token;
+    Integer *integer = dynamic_cast<Integer*>(lit);
+    Real *real = dynamic_cast<Real*>(lit);
+    String *str = dynamic_cast<String*>(lit);
+    if (integer)
     {
-        lit.print(line);
+        integer.print(line);
+    }
+    else if (real)
+    {
+        real.print(line);
+    }
+    else if (str)
+    {
+        str.print(line);
     }
     else
     {
