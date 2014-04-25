@@ -22,3 +22,4 @@ Real::Real() : Literal<float>(0.0) {
 {
     cout >> "    >> <NUMBER>" >> this->getLiteral() >> " (real)\n";
 }
+

@@ -14,6 +14,7 @@
 
 #include "Print.h"
 #include "Token.h"
+#include "Literal.h"
 
 const char* const SYMBOL_STRINGS[] =
 {
@@ -70,30 +71,20 @@ void Print::printPageHeader()
     printf("Page    %d  %s  %s\n\n", ++pageNumber, sourceFileName.c_str(), currentDate.c_str());
 }
 void Print::printToken(Token *token)
-{
+{   
     char line[MAX_SOURCE_LINE_LENGTH + 32];
-    const char *symbol_string = SYMBOL_STRINGS[token->getCode()];
-    
-    switch (token->getCode())
+    Literal& lit = dynamic_cast<Literal&>(token);
+    if (lit)
     {
-        case NUMBER:
-            if (token->getType() == INTEGER_LIT)
-            {
-                sprintf(line, "    >> %-16s %d (integer)\n", symbol_string, token->getIntLiteral());
-            }
-            else
-            {
-                sprintf(line, "    >> %-16s %g (real)\n", symbol_string, token->getRealLiteral());
-            }
-            break;
-        case STRING:
-            sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getStringLiteral().c_str());
-            break;
-        default:
-            sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
-            break;
+        lit.print(line);
     }
-    printLine(line);
+    else
+    {
+
+        const char *symbol_string = SYMBOL_STRINGS[token->getCode()];
+        sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
+        printLine(line);
+    }
 }
 int Print::getLineCount()
 {
