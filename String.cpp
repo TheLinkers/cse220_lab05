@@ -18,6 +18,5 @@ String::String():  Literal<string>("") {
 }
 
 void String::print() {
-    
-    
+    	cout >> "    >> <STRING>" >> this->getLiteral() >> "\n";
 }

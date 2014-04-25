@@ -11,7 +11,7 @@
 #10:30am T Th
 #******************************************************* 
 
-OBJS = Identifier.o IdentifierBinaryTree.o Integer.o LineNumberList.o Literal.o \
+OBJS = Identifier.o IdentifierBinaryTree.o Integer.o LineNumberList.o \
         main.o Print.o Real.o Scanner.o String.o Token.o
 CC = g++
 DEBUG = -g
@@ -21,10 +21,10 @@ LFLAGS = -Wall $(DEBUG)
 CrossReference : $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) -o CrossReference
 
-main.o : main.cpp common.h Print.h Scanner.h Token.h
+main.o : main.cpp common.h Print.h Scanner.h Token.h IdentifierBinaryTree.h
 	$(CC) $(CFLAGS) main.cpp
 
-Identifier.o : Identifier.h Identifier.cpp
+Identifier.o : Identifier.h Identifier.cpp 
 	$(CC) $(CFLAGS) Identifier.cpp
 
 IdentifierBinaryTree.o : IdentifierBinaryTree.h IdentifierBinaryTree.cpp LineNumberList.h
@@ -36,7 +36,16 @@ Integer.o : Integer.h Integer.cpp
 LineNumberList.o : LineNumberList.h LineNumberList.cpp
 	$(CC) $(CFLAGS) LineNumberList.cpp
 
-String.o : String.h String.cpp
+Print.o : Print.h Print.cpp Token.h
+	$(CC) $(CFLAGS) Print.cpp
+
+Real.o : Real.h Real.cpp
+	$(CC) $(CFLAGS) Real.cpp
+
+Scanner.o : Scanner.h Scanner.cpp
+	$(CC) $(CFLAGS) Scanner.cpp
+
+String.o : String.h String.cpp 
 	$(CC) $(CFLAGS) String.cpp
 
 Token.o : Token.h Token.cpp
