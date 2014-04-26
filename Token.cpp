@@ -20,6 +20,7 @@ Token::Token()
     setLeftChild(NULL);
     setRightChild(NULL);
     list = NULL;
+    number_type = false;
 }
 Token::~Token()
 {
