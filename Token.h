@@ -25,6 +25,7 @@ using namespace std;
  this is a valid Pascal token.  A token must have a literal type,
  a literal value, and a token code.
  ***************/
+
 class Token
 {
 private:
@@ -41,7 +42,7 @@ private:
     //What variables and methods am I missing to implement a binary tree.
     Token *leftChild;
     Token *rightChild;
-    LineNumberList *list;
+    LineNumberList* list;
     
 public:
     Token();
@@ -63,7 +64,7 @@ public:
     void setRightChild(Token *tok);
     Token *getRightChild();
     void addToLineNumberList(LineNumberList *listItem);
-    LineNumberList *getLineNumberList();
+    LineNumberList* getLineNumberList();
 };
 
 #endif /* defined(__Lab4__Token__) */

@@ -11,7 +11,6 @@
  Lab5 */
 
 #include "Identifier.h"
-#include "Token.h"
 
 using namespace std;
 
