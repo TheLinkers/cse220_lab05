@@ -200,7 +200,6 @@ void Scanner::getWord(char *str, char *token_ptr)
      Write some code to Check if the word is a reserved word.
      if it is not a reserved word its an identifier.
      */
-    new_token = new Identifier();
 
     if (!isReservedWord(str))
     {
