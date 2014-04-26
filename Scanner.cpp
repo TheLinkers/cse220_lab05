@@ -91,7 +91,6 @@ Token* Scanner::getToken()
     char token_string[MAX_TOKEN_STRING_LENGTH] = {'\0'}; //Store your token here as you build it.
     char *token_ptr = token_string; //write some code to point this to the beginning of token_string
     
-    new_token->setType(NO_TYPE);
     //1.  Skip past all of the blanks
     if (line_ptr == NULL)
     {
@@ -200,6 +199,8 @@ void Scanner::getWord(char *str, char *token_ptr)
      Write some code to Check if the word is a reserved word.
      if it is not a reserved word its an identifier.
      */
+    new_token = new Identifier();
+
     if (!isReservedWord(str))
     {
         //set token to identifier

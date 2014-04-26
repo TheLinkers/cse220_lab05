@@ -48,7 +48,7 @@ TokenCode Token::getCode()
 }
 void Token::setType(LiteralType newType)
 {
-    this->type = newType;
+    this->type = newType;			// seg fault here
 }
 LiteralType Token::getType()
 {
