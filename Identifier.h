@@ -20,9 +20,9 @@ class Identifier : public Token {
 public:
     Identifier();
     ~Identifier();
-    void setLeftChild(Token *tok);
+    void setLeftChild(Identifier *tok);
     Identifier *getLeftChild();
-    void setRightChild(Token *tok);
+    void setRightChild(Identifier *tok);
     Identifier *getRightChild();
     
 private:    

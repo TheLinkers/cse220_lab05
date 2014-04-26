@@ -15,14 +15,16 @@
 using namespace std;
 
 Identifier::Identifier() {
-    
+    setLeftChild(NULL);
+    setRightChild(NULL);
 }
 
 Identifier::~Identifier() {
     
 }
 
-void Identifier::setLeftChild(Token *tok) {
+void Identifier::setLeftChild(Identifier *tok) {
+    this->leftChild = tok;
 }
 
 Identifier* Identifier::getLeftChild() {
@@ -30,8 +32,8 @@ Identifier* Identifier::getLeftChild() {
     return this->leftChild;
 }
 
-void Identifier::setRightChild(Token *tok) {
-    
+void Identifier::setRightChild(Identifier *tok) {
+        this->rightChild = tok;
 }
 
 Identifier* Identifier::getRightChild() {
