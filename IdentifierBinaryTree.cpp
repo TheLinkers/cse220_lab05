@@ -80,7 +80,7 @@ bool IdentifierBinaryTree::addIdentifier(Identifier *tok, int lineNum)
                 //They are the same identifier token we just need to add a new line number to the list.
                 parentNode->addToLineNumberList(listItem);
                 parentNode = NULL; //Exit the loop
-                delete tok;         //We won't need tok and it won't be deleted in main.
+		delete tok;         //We won't need tok and it won't be deleted in main.
                 success = true;
             }
             else if (stringComparison < 0)

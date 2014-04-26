@@ -68,7 +68,7 @@ Scanner::Scanner(FILE *source_file, char source_name[], char date[], Print print
 }
 Scanner::~Scanner()
 {
-    delete new_token;
+	 delete new_token;
 }
 bool Scanner::getSourceLine(char source_buffer[])
 {
@@ -185,6 +185,8 @@ void Scanner::getWord(char *str, char *token_ptr)
     /*
      Write some code to Extract the word
      */
+	// new_token = new Token();
+    
     char ch = *line_ptr;
     while ((char_table[(unsigned char)ch] == LETTER) || (char_table[(unsigned char)ch] == DIGIT))
     {
@@ -205,7 +207,9 @@ void Scanner::getWord(char *str, char *token_ptr)
     {
         //set token to identifier
         //new_token->setCode(IDENTIFIER);
-        new_token = new Identifier();
+    new_token->setCode(IDENTIFIER);
+    Identifier* new_ident = new Identifier();
+    new_token = new_ident;
     }
     new_token->setTokenString(string(str));
 }
