@@ -16,11 +16,7 @@
 #define Lab4_Scanner_h
 
 #include "common.h"
-#include "Token.h"
 #include "Print.h"
-#include "Integer.h"
-#include "Real.h"
-#include "String.h"
 #include "Identifier.h"
 
 #define CHAR_TABLE_SIZE 256

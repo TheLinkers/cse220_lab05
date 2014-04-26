@@ -14,7 +14,6 @@
 #define __cse220_lab05__Literal__
 
 #include <iostream>
-#include "common.h"
 #include "Token.h"
 
 using namespace std;
