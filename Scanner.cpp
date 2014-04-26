@@ -16,7 +16,7 @@
 
 typedef struct
 {
-    char *string;
+    const char *string;
     TokenCode token_code;
 }
 RwStruct;
@@ -64,10 +64,11 @@ Scanner::Scanner(FILE *source_file, char source_name[], char date[], Print print
     
     line_number = 0;
     source_line[0] = '\0';
+	new_token = new Token();
 }
 Scanner::~Scanner()
 {
-    
+    delete new_token;
 }
 bool Scanner::getSourceLine(char source_buffer[])
 {
@@ -100,7 +101,7 @@ Token* Scanner::getToken()
     ch = *line_ptr;
     
     //2.  figure out which case you are dealing with LETTER, DIGIT, QUOTE, EOF, or special, by examining ch
-    switch (char_table[ch])
+    switch (char_table[(unsigned char)ch])
     {//3.  Call the appropriate function to deal with the cases in 2.
         case LETTER:
             getWord(token_string, token_ptr);
@@ -185,7 +186,7 @@ void Scanner::getWord(char *str, char *token_ptr)
      Write some code to Extract the word
      */
     char ch = *line_ptr;
-    while ((char_table[ch] == LETTER) || (char_table[ch] == DIGIT))
+    while ((char_table[(unsigned char)ch] == LETTER) || (char_table[(unsigned char)ch] == DIGIT))
     {
         *token_ptr++ = *line_ptr++;
         ch = *line_ptr;
@@ -222,7 +223,7 @@ void Scanner::getNumber(char *str, char *token_ptr)
         *(token_ptr++) = ch;
         ch = *(++line_ptr);
     }
-    while (char_table[ch] == DIGIT);
+    while (char_table[(unsigned char)ch] == DIGIT);
     
     if (ch == '.')
     {
@@ -244,7 +245,7 @@ void Scanner::getNumber(char *str, char *token_ptr)
                 *(token_ptr++) = ch;
                 ch = *(line_ptr++);
             }
-            while (char_table[ch] == DIGIT);
+            while (char_table[(unsigned char)ch] == DIGIT);
         }
     }
     if (ch == 'e' || ch == 'E')
@@ -262,7 +263,7 @@ void Scanner::getNumber(char *str, char *token_ptr)
             *(token_ptr++) = ch;
             ch = *(++line_ptr);
         }
-        while (char_table[ch] == DIGIT);
+        while (char_table[(unsigned char)ch] == DIGIT);
     }
     *token_ptr = '\0';
     new_token->setCode(NUMBER);
@@ -451,7 +452,7 @@ void Scanner::downshiftWord(char word[])
     /*
      Make all of the characters in the incoming word lower case.
      */
-    int index;
+    unsigned int index;
     
     for (index = 0; index < strlen(word); index++)
     {

@@ -55,6 +55,6 @@ typedef enum
 }
 LiteralType;
 
-static bool number_type = false;
+//static bool number_type = false;
 
 #endif

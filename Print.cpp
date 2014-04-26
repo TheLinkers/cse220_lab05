@@ -15,18 +15,7 @@
 #include "Print.h"
 
 
-const char* const SYMBOL_STRINGS[] =
-{
-    "<no token>", "<IDENTIFIER>", "<NUMBER>", "<STRING>",
-    "^","*","(",")","-","+","=","[","]",":",";",
-    "<",">",",",".","/",":=","<=",">=","<>","..",
-    "<END OF FILE>", "<ERROR>",
-    "AND","ARRAY","BEGIN","CASE","CONST","DIV","DO","DOWNTO",
-    "ELSE","END","FILE","FOR","FUNCTION","GOTO","IF","IN",
-    "LABEL","MOD","NIL","NOT","OF","OR","PACKED","PROCEDURE",
-    "PROGRAM","RECORD","REPEAT","SET","THEN","TO","TYPE","UNTIL",
-    "VAR","WHILE","WITH",
-};
+
 
 Print::Print(char source_name[], char date[])
 {
@@ -71,8 +60,9 @@ void Print::printPageHeader()
 }
 void Print::printToken(Token *token)
 {
-    char line[MAX_SOURCE_LINE_LENGTH + 32];
+    /*char line[MAX_SOURCE_LINE_LENGTH + 32];
     const char *symbol_string = SYMBOL_STRINGS[token->getCode()];
+	printLine(line);
     
     switch (token->getCode()) {
 	{ case NUMBER:
@@ -96,13 +86,12 @@ void Print::printToken(Token *token)
 	}
     }
     
-    /* Dynamic casting (not functional right now)
+     Dynamic casting (not functional right now)
      Integer *integer = dynamic_cast<Integer*>(lit);
      Real *real = dynamic_cast<Real*>(lit);
      String *str = dynamic_cast<String*>(lit);
      */
-    
-    printLine(line);
+    token->print();
 }
 
 int Print::getLineCount()

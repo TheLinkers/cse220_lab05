@@ -34,24 +34,21 @@ int main(int argc, const char * argv[])
     Print print(source_name, date);
     Scanner scanner(source_file, source_name, date, print);
     IdentifierBinaryTree tree;
-    number_type = false;
     
     do
-	{
-	number_type = false;
-
+    {
 	token = scanner.getToken();
         print.printToken(token);
         if (token->getCode() == IDENTIFIER)
-	    {
+	{
 	    Identifier* identifier = (Identifier*) token;
 	    tree.addIdentifier(identifier, scanner.getLineNumber());
-	    }
-        else if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
-	    {
-            delete token;
-	    }
 	}
+        else if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
+	{
+            delete token;
+	}
+    }
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
     
     print.printTree(tree.getTreeRoot());
