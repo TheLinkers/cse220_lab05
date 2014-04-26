@@ -14,6 +14,19 @@
 
 #include "Token.h"
 
+const char* const SYMBOL_STRINGS[] =
+{
+    "<no token>", "<IDENTIFIER>", "<NUMBER>", "<STRING>",
+    "^","*","(",")","-","+","=","[","]",":",";",
+    "<",">",",",".","/",":=","<=",">=","<>","..",
+    "<END OF FILE>", "<ERROR>",
+    "AND","ARRAY","BEGIN","CASE","CONST","DIV","DO","DOWNTO",
+    "ELSE","END","FILE","FOR","FUNCTION","GOTO","IF","IN",
+    "LABEL","MOD","NIL","NOT","OF","OR","PACKED","PROCEDURE",
+    "PROGRAM","RECORD","REPEAT","SET","THEN","TO","TYPE","UNTIL",
+    "VAR","WHILE","WITH",
+};
+
 Token::Token()
 {
     //What code do I need here to initialize everything.
@@ -124,4 +137,9 @@ void Token::addToLineNumberList(LineNumberList *listItem)
 LineNumberList *Token::getLineNumberList()
 {
     return this->list;
+}
+void Token::print()
+{
+	const char *symbol_string = SYMBOL_STRINGS[this->getCode()];
+	cout << "    >> " << symbol_string << " " << this->getTokenString() << "\n";
 }

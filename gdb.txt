@@ -1,0 +1,130 @@
+gdb ./CrossReference
+GNU gdb (Ubuntu/Linaro 7.4-2012.04-0ubuntu2.1) 7.4-2012.04
+Copyright (C) 2012 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+For bug reporting instructions, please see:
+<http://bugs.launchpad.net/gdb-linaro/>...
+Reading symbols from /home/dmart/Documents/CSE_220/cse220_lab05/CrossReference...done.
+(gdb) b 40
+Breakpoint 1 at 0x401b79: file main.cpp, line 40.
+(gdb) r n
+Starting program: /home/dmart/Documents/CSE_220/cse220_lab05/CrossReference n
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe798) at main.cpp:40
+40		token = scanner.getToken();
+(gdb) step
+Scanner::getToken (this=0x7fffffffe080) at Scanner.cpp:90
+90	{
+(gdb) 
+91	    char ch = '\0'; //This can be the current character you are examining during scanning.
+(gdb) 
+92	    char token_string[MAX_TOKEN_STRING_LENGTH] = {'\0'}; //Store your token here as you build it.
+(gdb) 
+93	    char *token_ptr = token_string; //write some code to point this to the beginning of token_string
+(gdb) 
+95	    new_token->setType(NO_TYPE);
+(gdb) 
+Token::setType (this=0x608360, newType=NO_TYPE) at Token.cpp:64
+64	    this->type = newType;
+(gdb) 
+65	}
+(gdb) 
+Scanner::getToken (this=0x7fffffffe080) at Scanner.cpp:97
+97	    if (line_ptr == NULL)
+(gdb) 
+101	    skipBlanks(source_line);
+(gdb) 
+Scanner::skipBlanks (this=0x7fffffffe080, source_buffer=0x7fffffffe500 "") at Scanner.cpp:165
+165	    while (getChar(source_buffer) == ' ' && (*line_ptr != EOF_CHAR))
+(gdb) 
+Scanner::getChar (this=0x7fffffffe080, source_buffer=0x7fffffffe500 "") at Scanner.cpp:135
+135	    if (*line_ptr == '\0')
+(gdb) 
+148	    ch = *line_ptr;
+(gdb) 
+149	    if ((ch == '\n') || (ch == '\t') || (ch == '\r'))
+(gdb) 
+153	    if (ch == '{')
+(gdb) 
+157	    return ch;
+(gdb) 
+158	}
+(gdb) 
+Scanner::skipBlanks (this=0x7fffffffe080, source_buffer=0x7fffffffe500 "") at Scanner.cpp:169
+169	}
+(gdb) 
+Scanner::getToken (this=0x7fffffffe080) at Scanner.cpp:102
+102	    ch = *line_ptr;
+(gdb) 
+105	    switch (char_table[(unsigned char)ch])
+(gdb) 
+120	            getSpecial(token_string, token_ptr);
+(gdb) 
+Scanner::getSpecial (this=0x7fffffffe080, str=0x7fffffffdef0 "", token_ptr=0x7fffffffdef0 "") at Scanner.cpp:308
+308	    char ch = *line_ptr;
+(gdb) 
+309	    *token_ptr = ch;
+(gdb) 
+311	    switch (ch)
+(gdb) 
+441	            new_token->setCode(ERROR);
+(gdb) 
+Token::setCode (this=0x608360, newCode=ERROR) at Token.cpp:56
+56	    this->code = newCode;
+(gdb) 
+57	}
+(gdb) 
+Scanner::getSpecial (this=0x7fffffffe080, str=0x7fffffffdef0 "\377", token_ptr=0x7fffffffdef0 "\377") at Scanner.cpp:442
+442	            token_ptr++;
+(gdb) 
+443	            line_ptr++;
+(gdb) 
+444	            break;
+(gdb) 
+446	    *token_ptr = '\0';
+(gdb) 
+447	    new_token->setTokenString(string(str));
+(gdb) 
+Token::setTokenString (this=0x608360, s=...) at Token.cpp:97
+97	    this->tokenString = s;
+(gdb) 
+98	}
+(gdb) 
+Scanner::getSpecial (this=0x7fffffffe080, str=0x7fffffffdef0 "\377", token_ptr=0x7fffffffdef1 "") at Scanner.cpp:448
+448	}
+(gdb) 
+Scanner::getToken (this=0x7fffffffe080) at Scanner.cpp:121
+121	            break;
+(gdb) 
+124	    return new_token; //What should be returned here?
+(gdb) 
+125	}
+(gdb) 
+main (argc=2, argv=0x7fffffffe798) at main.cpp:41
+41	        print.printToken(token);
+(gdb) 
+Print::printToken (this=0x7fffffffe020, token=0x608360) at Print.cpp:94
+94	    token->print();
+(gdb) 
+Token::print (this=0x608360) at Token.cpp:143
+143		const char *symbol_string = SYMBOL_STRINGS[this->getCode()];
+(gdb) 
+Token::getCode (this=0x608360) at Token.cpp:60
+60	    return this->code;
+(gdb) 
+61	}
+(gdb) 
+Token::print (this=0x608360) at Token.cpp:144
+144		cout << "    >> " << symbol_string << " " << this->getTokenString() << "\n";
+(gdb) 
+Token::getTokenString (this=0x608360) at Token.cpp:101
+101	    return this->tokenString;
+(gdb) 
+102	}
+(gdb) 
+    >> <ERROR> �
+

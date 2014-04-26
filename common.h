@@ -19,6 +19,7 @@
 #include <sys/types.h>
 #include <string.h>
 #include <time.h>
+#include <stdlib.h>
 
 #define FORM_FEED_CHAR          '\f'
 #define EOF_CHAR                '\x7f'
@@ -54,6 +55,6 @@ typedef enum
 }
 LiteralType;
 
-static bool number_type = false;
+//static bool number_type = false;
 
 #endif
