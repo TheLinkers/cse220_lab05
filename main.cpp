@@ -60,7 +60,6 @@ FILE *init_lister(const char *name, char source_file_name[], char dte[])
 {
     time_t timer;
     FILE *file;
-    
     strcpy(source_file_name, name);
     file = fopen(source_file_name, "r");
     time(&timer);
