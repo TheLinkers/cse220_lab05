@@ -18,5 +18,5 @@ Integer::Integer() : Literal<int>(0) {
 }
 
 void Integer::print() {
-	cout << "    >> <NUMBER>" << this->getLiteral() << " (integer)\n";
+	cout << "    >> <NUMBER>\t\t" << this->getLiteral() << " (integer)\n";
 }

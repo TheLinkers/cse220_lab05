@@ -20,6 +20,6 @@ Real::Real() : Literal<float>(0.0) {
 
  void Real::print()
 {
-    cout << "    >> <NUMBER>" << this->getLiteral() << " (real)\n";
+    cout << "    >> <NUMBER>\t\t" << this->getLiteral() << " (real)\n";
 }
 
