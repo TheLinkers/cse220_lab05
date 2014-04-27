@@ -16,7 +16,6 @@
 
 
 
-
 Print::Print(char source_name[], char date[])
 {
     this->sourceFileName = string(source_name);
@@ -60,8 +59,7 @@ void Print::printPageHeader()
 }
 void Print::printToken(Token *token)
 {
-    /*char line[MAX_SOURCE_LINE_LENGTH + 32];
-    const char *symbol_string = SYMBOL_STRINGS[token->getCode()];
+    char line[MAX_SOURCE_LINE_LENGTH + 32];
 	printLine(line);
     
     switch (token->getCode()) {
@@ -81,11 +79,12 @@ void Print::printToken(Token *token)
 	    break;
 	    
 	} {default:
-	    sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
+		//sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
 	    break;
 	}
     }
-    
+  
+    /*
      Dynamic casting (not functional right now)
      Integer *integer = dynamic_cast<Integer*>(lit);
      Real *real = dynamic_cast<Real*>(lit);

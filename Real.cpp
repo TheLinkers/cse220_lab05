@@ -13,7 +13,7 @@
 #include "Real.h"
 
 Real::Real() : Literal<float>(0.0) {
-    
+    number_type = false;
     
     
 }

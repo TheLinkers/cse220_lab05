@@ -68,7 +68,7 @@ Scanner::Scanner(FILE *source_file, char source_name[], char date[], Print print
 }
 Scanner::~Scanner()
 {
-	 delete new_token;
+	// delete new_token;
 }
 bool Scanner::getSourceLine(char source_buffer[])
 {
@@ -206,10 +206,9 @@ void Scanner::getWord(char *str, char *token_ptr)
     if (!isReservedWord(str))
     {
         //set token to identifier
-        //new_token->setCode(IDENTIFIER);
+    new_token = new Identifier();
     new_token->setCode(IDENTIFIER);
-    Identifier* new_ident = new Identifier();
-    new_token = new_ident;
+    new_token->setTokenString(str);
     }
     new_token->setTokenString(string(str));
 }

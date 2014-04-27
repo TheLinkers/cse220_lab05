@@ -21,6 +21,8 @@
 
 class IdentifierBinaryTree
 {
+private: 
+    
     Identifier *treeRoot;
     
     void depthFirstDeleteTree(Identifier *tok);

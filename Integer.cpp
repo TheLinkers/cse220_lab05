@@ -13,7 +13,7 @@
 #include "Integer.h"
 
 Integer::Integer() : Literal<int>(0) {
-    //number_type = true;
+    number_type = true;
 
 }
 

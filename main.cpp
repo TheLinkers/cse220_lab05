@@ -37,6 +37,7 @@ int main(int argc, const char * argv[])
     
     do
 	{
+	number_type = false;
 	token = scanner.getToken();
         print.printToken(token);
         if (token->getCode() == IDENTIFIER)
@@ -51,7 +52,7 @@ int main(int argc, const char * argv[])
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
     
     print.printTree(tree.getTreeRoot());
-    delete token;
+	//delete token;
     fclose(source_file);
     return 0;
 }

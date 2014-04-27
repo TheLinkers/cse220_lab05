@@ -43,7 +43,7 @@ Token::~Token()
     while (root != NULL)
     {
         tmp = tmp->getNextLineNumber();
-        delete root;
+       delete root;
         root = tmp;
     }
     if (this->getType() == STRING_LIT)
