@@ -58,7 +58,13 @@ void Print::printPageHeader()
     printf("Page    %d  %s  %s\n\n", ++pageNumber, sourceFileName.c_str(), currentDate.c_str());
 }
 void Print::printToken(Token *token)
-{   /*
+{   
+if (++lineCount > MAX_LINES_PER_PAGE)
+	{
+        printPageHeader();
+        lineCount = 1;
+	}
+/*
     switch (token->getCode()) {
 	{ case NUMBER:
 	    if (number_type) {				// figure out how to instantiate
