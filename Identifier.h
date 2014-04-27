@@ -17,6 +17,10 @@
 #include "Token.h"
 
 class Identifier : public Token {
+private:
+    Identifier* rightChild;
+    Identifier* leftChild;
+
 public:
     Identifier();
     ~Identifier();
@@ -24,11 +28,6 @@ public:
     Identifier *getLeftChild();
     void setRightChild(Identifier *tok);
     Identifier *getRightChild();
-    
-private:    
-    Identifier* rightChild;
-    Identifier* leftChild;
-    
 };
 
 

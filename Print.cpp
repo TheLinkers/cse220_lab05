@@ -59,12 +59,9 @@ void Print::printPageHeader()
 }
 void Print::printToken(Token *token)
 {
-    char line[MAX_SOURCE_LINE_LENGTH + 32];
-	printLine(line);
-    
     switch (token->getCode()) {
 	{ case NUMBER:
-	    if (number_type) {			// figure out how to instantiate
+	    if (number_type) {				// figure out how to instantiate
 		Integer* token = new Integer();		// allocates new token-identifier on heap
 		token->print();
 	    } else {
@@ -83,7 +80,7 @@ void Print::printToken(Token *token)
 	    break;
 	}
     }
-  
+    
     /*
      Dynamic casting (not functional right now)
      Integer *integer = dynamic_cast<Integer*>(lit);

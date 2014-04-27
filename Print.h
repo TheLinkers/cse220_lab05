@@ -28,20 +28,17 @@ using namespace std;
 class LineNumberList;
 
 
-class Print
-{
+class Print {
 private:
     string sourceFileName;
     string currentDate;
     int pageNumber;
     int lineCount;
-    
     void printPageHeader();
     
 public:
     Print(char source_name[], char date[]);
     ~Print();
-    
     void printLine(char line[]);
     void printToken(Token *token);
     int getLineCount();

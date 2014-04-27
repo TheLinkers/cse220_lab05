@@ -27,7 +27,7 @@ void add_token_to_list(Token *list, Token *new_token);
 
 int main(int argc, const char * argv[])
 {
-    Token *token = new Identifier();
+    Token *token = NULL;
     char source_name[MAX_FILE_NAME_LENGTH];
     char date[DATE_STRING_LENGTH];
     FILE *source_file = init_lister(argv[1], source_name, date);
