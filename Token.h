@@ -64,7 +64,7 @@ public:
     Token *getRightChild();
     void addToLineNumberList(LineNumberList *listItem);
     LineNumberList *getLineNumberList();
-	void print();
+    virtual void print();
 };
 
 #endif /* defined(__Lab4__Token__) */
