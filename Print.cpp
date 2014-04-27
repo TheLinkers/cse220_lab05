@@ -103,6 +103,7 @@ void Print::printTreeRecursive(Identifier *identifier)
         printTreeRecursive(identifier->getLeftChild());
 	}
     sprintf(line, " %-16s %-s", identifier->getTokenString().c_str(), " ");
+    lineCount = 1;
     printLine(line);
     
     LineNumberList *list = identifier->getLineNumberList();
