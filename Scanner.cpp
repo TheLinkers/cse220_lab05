@@ -64,7 +64,7 @@ Scanner::Scanner(FILE *source_file, char source_name[], char date[], Print print
     
     line_number = 0;
     source_line[0] = '\0';
-	new_token = new Token();
+    //new_token = new Token();
 }
 Scanner::~Scanner()
 {
@@ -185,7 +185,7 @@ void Scanner::getWord(char *str, char *token_ptr)
     /*
      Write some code to Extract the word
      */
-	// new_token = new Token();
+    Token* tok = new Token();
     
     char ch = *line_ptr;
     while ((char_table[(unsigned char)ch] == LETTER) || (char_table[(unsigned char)ch] == DIGIT))
@@ -203,14 +203,17 @@ void Scanner::getWord(char *str, char *token_ptr)
      if it is not a reserved word its an identifier.
      */
 
-    if (!isReservedWord(str))
+    if (!isReservedWord(str, tok))
     {
         //set token to identifier
     new_token = new Identifier();
     new_token->setCode(IDENTIFIER);
     new_token->setTokenString(str);
     }
-    new_token->setTokenString(string(str));
+    else{
+        tok->setTokenString(string(str));
+        new_token = tok;
+    }
 }
 void Scanner::getNumber(char *str, char *token_ptr)
 {
@@ -310,66 +313,66 @@ void Scanner::getSpecial(char *str, char *token_ptr)
      */
     char ch = *line_ptr;
     *token_ptr = ch;
-    
+    Token* tok = new Token();
     switch (ch)
     {
         case '^':
-            new_token->setCode(UPARROW);
+            tok->setCode(UPARROW);
             token_ptr++;
             line_ptr++;
             break;
         case '*':
-            new_token->setCode(STAR);
+            tok->setCode(STAR);
             token_ptr++;
             line_ptr++;
             break;
         case '(':
-            new_token->setCode(LPAREN);
+            tok->setCode(LPAREN);
             token_ptr++;
             line_ptr++;
             break;
         case ')':
-            new_token->setCode(RPAREN);
+            tok->setCode(RPAREN);
             token_ptr++;
             line_ptr++;
             break;
         case '-':
-            new_token->setCode(MINUS);
+            tok->setCode(MINUS);
             token_ptr++;
             line_ptr++;
             break;
         case '+':
-            new_token->setCode(PLUS);
+            tok->setCode(PLUS);
             token_ptr++;
             line_ptr++;
             break;
         case '=':
-            new_token->setCode(EQUAL);
+            tok->setCode(EQUAL);
             token_ptr++;
             line_ptr++;
             break;
         case '[':
-            new_token->setCode(LBRACKET);
+            tok->setCode(LBRACKET);
             token_ptr++;
             line_ptr++;
             break;
         case ']':
-            new_token->setCode(RBRACKET);
+            tok->setCode(RBRACKET);
             token_ptr++;
             line_ptr++;
             break;
         case ';':
-            new_token->setCode(SEMICOLON);
+            tok->setCode(SEMICOLON);
             token_ptr++;
             line_ptr++;
             break;
         case ',':
-            new_token->setCode(COMMA);
+            tok->setCode(COMMA);
             token_ptr++;
             line_ptr++;
             break;
         case '/':
-            new_token->setCode(SLASH);
+            tok->setCode(SLASH);
             token_ptr++;
             line_ptr++;
             break;
@@ -379,13 +382,13 @@ void Scanner::getSpecial(char *str, char *token_ptr)
             if (ch == '=')
             {
                 *token_ptr = '=';
-                new_token->setCode(COLONEQUAL);
+                tok->setCode(COLONEQUAL);
                 token_ptr++;
                 line_ptr++;
             }
             else
             {
-                new_token->setCode(COLON);
+                tok->setCode(COLON);
             }
             break;
         case '<':
@@ -394,20 +397,20 @@ void Scanner::getSpecial(char *str, char *token_ptr)
             if (ch == '=')
             {
                 *token_ptr = '=';
-                new_token->setCode(LE);
+                tok->setCode(LE);
                 token_ptr++;
                 line_ptr++;
             }
             else if (ch == '>')
             {
                 *token_ptr = '>';
-                new_token->setCode(NE);
+                tok->setCode(NE);
                 token_ptr++;
                 line_ptr++;
             }
             else
             {
-                new_token->setCode(LT);
+                tok->setCode(LT);
             }
             break;
         case '>':
@@ -416,13 +419,13 @@ void Scanner::getSpecial(char *str, char *token_ptr)
             if (ch == '=')
             {
                 *token_ptr = '=';
-                new_token->setCode(GE);
+                tok->setCode(GE);
                 token_ptr++;
                 line_ptr++;
             }
             else
             {
-                new_token->setCode(GT);
+                tok->setCode(GT);
             }
             break;
         case '.':
@@ -431,23 +434,24 @@ void Scanner::getSpecial(char *str, char *token_ptr)
             if (ch == '=')
             {
                 *token_ptr = '.';
-                new_token->setCode(DOTDOT);
+                tok->setCode(DOTDOT);
                 token_ptr++;
                 line_ptr++;
             }
             else
             {
-                new_token->setCode(PERIOD);
+                tok->setCode(PERIOD);
             }
             break;
         default:
-            new_token->setCode(ERROR);
+            tok->setCode(ERROR);
             token_ptr++;
             line_ptr++;
             break;
     }
     *token_ptr = '\0';
-    new_token->setTokenString(string(str));
+    tok->setTokenString(string(str));
+    new_token = tok;
 }
 void Scanner::downshiftWord(char word[])
 {
@@ -461,7 +465,7 @@ void Scanner::downshiftWord(char word[])
         word[index] = tolower(word[index]);
     }
 }
-bool Scanner::isReservedWord(char *str)
+bool Scanner::isReservedWord(char *str, Token *tok)
 {
     /*
      Examine the reserved word table and determine if the function input is a reserved word.
@@ -477,7 +481,7 @@ bool Scanner::isReservedWord(char *str)
             rw = rw_table[str_len - 2][i];
             if (strcmp(str, rw.string) == 0)
             {
-                new_token->setCode(rw.token_code);
+                tok->setCode(rw.token_code);
                 return true;
             }
         }

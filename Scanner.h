@@ -53,7 +53,7 @@ private:
     void getString(char *str, char *token_ptr);
     void getSpecial(char *str, char *token_ptr);
     void downshiftWord(char word[]);
-    bool isReservedWord(char *str);
+    bool isReservedWord(char *str, Token *tok);
     
 public:
     Scanner(FILE *source_file, char source_name[], char date[], Print printer);
