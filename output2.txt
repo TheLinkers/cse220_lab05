@@ -1,15 +1,7 @@
-> make
-make: `CrossReference' is up to date.
-> CrossReference NEWTON.PAS
-
-Page    1  NEWTON.PAS  Sun Apr 27 22:36:24 2014
+Page    1  NEWTON.PAS  Mon Apr 28 16:52:33 2014
 
 
    1: PROGRAM newton (input, output);
-
-Page    1  NEWTON.PAS  Sun Apr 27 22:36:24 2014
-
-
     >> PROGRAM		program
     >> <IDENTIFIER>		newton
     >> (		(
@@ -24,6 +16,7 @@ Page    1  NEWTON.PAS  Sun Apr 27 22:36:24 2014
    4:     epsilon = 1e-6;
     >> <IDENTIFIER>		epsilon
     >> =		=
+    >> <NUMBER>		0 (real)
     >> <NUMBER>		1e-06 (real)
     >> ;		;
    5: 
@@ -63,6 +56,7 @@ Page    1  NEWTON.PAS  Sun Apr 27 22:36:24 2014
     >> IF		if
     >> <IDENTIFIER>		number
     >> =		=
+    >> <NUMBER>		0 (real)
     >> <NUMBER>		0 (integer)
     >> THEN		then
     >> BEGIN		begin
@@ -71,17 +65,18 @@ Page    1  NEWTON.PAS  Sun Apr 27 22:36:24 2014
     >> (		(
     >> <IDENTIFIER>		number
     >> :		:
-    >> <NUMBER>		12 (integer)
-    >> :		:
-    >> <NUMBER>		6 (integer)
-    >> ,		,
-
-Page    2  NEWTON.PAS  Sun Apr 27 22:36:24 2014
-
-
     >> <NUMBER>		0 (real)
     >> <NUMBER>		12 (integer)
     >> :		:
+    >> <NUMBER>		0 (real)
+    >> <NUMBER>		6 (integer)
+    >> ,		,
+    >> <NUMBER>		0 (real)
+    >> <NUMBER>		0 (real)
+    >> <NUMBER>		0 (real)
+    >> <NUMBER>		12 (integer)
+    >> :		:
+    >> <NUMBER>		0 (real)
     >> <NUMBER>		6 (integer)
     >> )		)
     >> ;		;
@@ -92,6 +87,7 @@ Page    2  NEWTON.PAS  Sun Apr 27 22:36:24 2014
     >> IF		if
     >> <IDENTIFIER>		number
     >> <		<
+    >> <NUMBER>		0 (real)
     >> <NUMBER>		0 (integer)
     >> THEN		then
     >> BEGIN		begin
@@ -119,14 +115,18 @@ Page    2  NEWTON.PAS  Sun Apr 27 22:36:24 2014
     >> (		(
     >> <IDENTIFIER>		number
     >> :		:
+    >> <NUMBER>		0 (real)
     >> <NUMBER>		12 (integer)
     >> :		:
+    >> <NUMBER>		0 (real)
     >> <NUMBER>		6 (integer)
     >> ,		,
     >> <IDENTIFIER>		sqroot
     >> :		:
+    >> <NUMBER>		0 (real)
     >> <NUMBER>		12 (integer)
     >> :		:
+    >> <NUMBER>		0 (real)
     >> <NUMBER>		6 (integer)
     >> )		)
     >> ;		;
@@ -137,13 +137,10 @@ Page    2  NEWTON.PAS  Sun Apr 27 22:36:24 2014
   26: 	    root := 1;
     >> <IDENTIFIER>		root
     >> :=		:=
+    >> <NUMBER>		0 (real)
     >> <NUMBER>		1 (integer)
     >> ;		;
   27: 	    REPEAT
-
-Page    3  NEWTON.PAS  Sun Apr 27 22:36:24 2014
-
-
     >> REPEAT		repeat
   28: 		root := (number/root + root)/2;
     >> <IDENTIFIER>		root
@@ -156,6 +153,7 @@ Page    3  NEWTON.PAS  Sun Apr 27 22:36:24 2014
     >> <IDENTIFIER>		root
     >> )		)
     >> /		/
+    >> <NUMBER>		0 (real)
     >> <NUMBER>		2 (integer)
     >> ;		;
   29: 		writeln(root:24:6,
@@ -163,12 +161,77 @@ Page    3  NEWTON.PAS  Sun Apr 27 22:36:24 2014
     >> (		(
     >> <IDENTIFIER>		root
     >> :		:
+    >> <NUMBER>		0 (real)
     >> <NUMBER>		24 (integer)
     >> :		:
+    >> <NUMBER>		0 (real)
     >> <NUMBER>		6 (integer)
     >> ,		,
   30: 			100*abs(root - sqroot)/sqroot:12:2,
+    >> <NUMBER>		0 (real)
     >> <NUMBER>		100 (integer)
     >> *		*
     >> <IDENTIFIER>		abs
-Segmentation fault: 11
+    >> (		(
+    >> <IDENTIFIER>		root
+    >> -		-
+    >> <IDENTIFIER>		sqroot
+    >> )		)
+    >> /		/
+    >> <IDENTIFIER>		sqroot
+    >> :		:
+    >> <NUMBER>		0 (real)
+    >> <NUMBER>		12 (integer)
+    >> :		:
+    >> <NUMBER>		0 (real)
+    >> <NUMBER>		2 (integer)
+    >> ,		,
+  31: 			'%')
+    >> <STRING>		'%'
+    >> )		)
+  32: 	    UNTIL abs(number/sqr(root) - 1) < epsilon;
+    >> UNTIL		until
+    >> <IDENTIFIER>		abs
+    >> (		(
+    >> <IDENTIFIER>		number
+    >> /		/
+    >> <IDENTIFIER>		sqr
+    >> (		(
+    >> <IDENTIFIER>		root
+    >> )		)
+    >> -		-
+    >> <NUMBER>		0 (real)
+    >> <NUMBER>		1 (integer)
+    >> )		)
+    >> <		<
+    >> <IDENTIFIER>		epsilon
+    >> ;		;
+  33: 	END
+    >> END		end
+  34:     UNTIL number = 0
+    >> UNTIL		until
+    >> <IDENTIFIER>		number
+    >> =		=
+    >> <NUMBER>		0 (real)
+    >> <NUMBER>		0 (integer)
+  35: END.
+    >> END		end
+    >> .		.
+
+ Cross Reference Information
+ Identifier 		Line Numbers
+ -----------		------------
+ abs               30	32	
+ epsilon           4	32	
+ input             1	
+ newton            1	
+ number            7	13	15	16	18	22	23	28	32	34	
+ output            1	
+ read              13	
+ real              7	
+ root              7	26	28	28	28	29	30	32	
+ sqr               32	
+ sqroot            7	22	23	30	30	
+ sqrt              22	
+ write             12	
+ writeln           11	16	19	23	24	29	
