@@ -58,49 +58,36 @@ void Print::printPageHeader()
     printf("Page    %d  %s  %s\n\n", ++pageNumber, sourceFileName.c_str(), currentDate.c_str());
 }
 void Print::printToken(Token *token)
-{   
-if (++lineCount > MAX_LINES_PER_PAGE)
-	{
-        printPageHeader();
-        lineCount = 1;
-	}
-/*
+{
     switch (token->getCode()) {
 	{ case NUMBER:
 	    if (number_type) {				// figure out how to instantiate
-		//Integer* token = new Integer();		 //allocates new token-identifier on heap
-		//token->print();
-                Integer *integer = dynamic_cast<Integer*>(token);
-                integer->print();
+		Integer* token = new Integer();		// allocates new token-identifier on heap
+		token->print();
 	    } else {
-		//Real* token = new Real();
-		//token->print();
-                Real *real = dynamic_cast<Real*>(token);
-                real->print();
+		Real* token = new Real();
+		token->print();
 	    }
 	    break;
 	    
 	} { case STRING:
-	    //String* token = new String();
-	    //token->print();
-            String *str = dynamic_cast<String*>(token);
-            str->print();
+	    String* token = new String();
+	    token->print();
 	    break;
 	    
 	} {default:
 		//sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
-                
 	    break;
 	}
-    }*/
-    token->print();
+    }
+    
     /*
      Dynamic casting (not functional right now)
      Integer *integer = dynamic_cast<Integer*>(lit);
      Real *real = dynamic_cast<Real*>(lit);
      String *str = dynamic_cast<String*>(lit);
      */
-    
+    token->print();
 }
 
 int Print::getLineCount()
@@ -112,9 +99,9 @@ void Print::printTreeRecursive(Identifier *identifier)
     char line[MAX_SOURCE_LINE_LENGTH + 32];
     
     if (identifier->getLeftChild() != NULL)
-    {
+	{
         printTreeRecursive(identifier->getLeftChild());
-    }
+	}
     sprintf(line, " %-16s %-s", identifier->getTokenString().c_str(), " ");
     lineCount = 1;
     printLine(line);
