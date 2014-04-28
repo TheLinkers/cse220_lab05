@@ -28,8 +28,7 @@ void Identifier::setLeftChild(Identifier *tok) {
 }
 
 Identifier* Identifier::getLeftChild() {
-	// not sure how to inherit this from Token
-    return leftChild;
+    return this->leftChild;
 }
 
 void Identifier::setRightChild(Identifier *tok) {
