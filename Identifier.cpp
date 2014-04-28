@@ -29,11 +29,11 @@ void Identifier::setLeftChild(Identifier *tok) {
 
 Identifier* Identifier::getLeftChild() {
 	// not sure how to inherit this from Token
-    return this->leftChild;
+    return leftChild;
 }
 
 void Identifier::setRightChild(Identifier *tok) {
-        this->rightChild = tok;
+        rightChild = tok;
 }
 
 Identifier* Identifier::getRightChild() {
