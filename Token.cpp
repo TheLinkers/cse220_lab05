@@ -141,5 +141,5 @@ LineNumberList *Token::getLineNumberList()
 void Token::print()
 {
 	const char *symbol_string = SYMBOL_STRINGS[this->getCode()];
-	cout << "    >> " << symbol_string << "\t\t" << this->getTokenString() << "\n";
+	cout << "    >> " << symbol_string << "\t" << this->getTokenString() << "\n";
 }

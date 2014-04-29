@@ -27,7 +27,7 @@
 #define MAX_SOURCE_LINE_LENGTH  256
 #define MAX_TOKEN_STRING_LENGTH MAX_SOURCE_LINE_LENGTH
 #define MAX_PRINT_LINE_LENGTH   80
-#define MAX_LINES_PER_PAGE      5
+#define MAX_LINES_PER_PAGE      20
 #define DATE_STRING_LENGTH      26
 
 /***************************
