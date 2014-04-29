@@ -36,6 +36,5 @@ void Identifier::setRightChild(Identifier *tok) {
 }
 
 Identifier* Identifier::getRightChild() {
-    	// not sure how to inherit this from Token
     return this->rightChild;
 }

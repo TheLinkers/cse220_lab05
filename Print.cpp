@@ -121,7 +121,7 @@ void Print::printTreeRecursive(Identifier *identifier)
 void Print::printTree(Identifier *identifier)
 {
     cout << "\n Cross Reference Information\n";
-    cout << " Identifier \t\tLine Numbers\n";
-    cout << " -----------\t\t------------\n";
+    cout << " Identifier \tLine Numbers\n";
+    cout << " -----------\t------------\n";
     printTreeRecursive(identifier);
 }
