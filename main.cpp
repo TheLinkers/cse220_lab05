@@ -46,13 +46,13 @@ int main(int argc, const char * argv[])
 	    }
         else if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
 	    {
-		delete token;
+	    delete token;
 	    }
 	}
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
     
     print.printTree(tree.getTreeRoot());
-	delete token;
+    delete token;
     fclose(source_file);
     return 0;
 }
